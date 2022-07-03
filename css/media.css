@@ -1,0 +1,122 @@
+@media (max-width: 768px) {
+  .child {
+    width: 100%;
+  }
+  
+  .child:nth-child(n + 4) {
+    display: none;
+  }
+
+  .child.child--visible {
+    display: block;
+  }
+
+  .more {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 576px) {
+  .scroll-off {
+    overflow: hidden;
+  }
+
+  .burger {
+    z-index: 2;
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 100%;
+  }
+
+  .burger__line {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 2px;
+    border-radius: 3px;
+    transform: translateX(-50%);
+    background-color: #ffba60;
+  }
+
+  .burger__line:nth-child(1) {
+    top: 13px;
+  }
+
+  .burger__line:nth-child(3) {
+    bottom: 13px;
+  }
+
+  .burger__line:nth-child(2) {
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .burger__line {
+    transition: transform .3s ease-in-out, top .3s ease-in-out, left .3s ease-in-out;
+  }
+
+  .burger--active
+  .burger__line:nth-child(2)  {
+    opacity: 0;
+  }
+
+  .burger--active
+  .burger__line:nth-child(1)  {
+    left: 25%;
+    top: 50%;
+    transform: rotate(45deg);
+    transform-origin: center;
+    transition: transform .3s ease-in-out, top .3s ease-in-out, left .3s ease-in-out;
+  }
+
+  .burger--active
+  .burger__line:nth-child(3)  {
+    bottom: auto;
+    left: 25%;
+    top: 50%;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    transition: transform .3s ease-in-out, top .3s ease-in-out, left .3s ease-in-out;
+  }
+  
+  .header__nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* min-width: 250px; */
+    height: 100vh;
+    z-index: 1;
+    padding: 50px;
+    box-shadow: 0 0 5px #888;
+    background-color: #fff;
+    overflow-y: auto;
+    visibility: hidden;
+    transform: translateX(-120%);
+    transition: visibility .3s ease-in-out, transform .3s ease-in-out;
+  }
+
+  .header__nav .header__list {
+    flex-direction: column;
+  }
+
+  .header__nav .header__item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .header__nav .header__link {
+    font-size: 18px;
+  }
+
+  .header__nav--active {
+    visibility: visible;
+    transform: none;
+  }
+}
